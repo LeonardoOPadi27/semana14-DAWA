@@ -1,7 +1,7 @@
 import type { Project } from "@/types";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://leonardo-padilla.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://leonardopadilla.xo.je";
 
 export const personalInfo = {
   name: "Leonardo Padilla",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "Sitio personal optimizado con meta tags dinamicos, sitemap, robots.txt e imagenes con carga diferida.",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    technologies: ["Next.js", "SEO", "Open Graph", "Vercel"],
+    technologies: ["Next.js", "SEO", "Open Graph", "InfinityFree"],
     demoUrl: "https://example.com/portfolio-seo",
     githubUrl: "https://github.com/LeonardoOPadi27/portfolio-seo",
     featured: false,

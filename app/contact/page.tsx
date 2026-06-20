@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Code2, ExternalLink, Mail, MessageSquare } from "lucide-react";
+import { Code2, ExternalLink, Mail } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -69,15 +69,6 @@ export default function ContactPage() {
                   </a>
                 </div>
               ))}
-            </div>
-
-            <div className="dark-panel mt-4 p-4 d-flex align-items-start gap-3">
-              <MessageSquare className="icon-soft flex-shrink-0" size={28} />
-              <p className="mb-0 lead-dark">
-                Esta pagina forma parte de la tarea del laboratorio y tambien
-                esta incluida en el sitemap dinamico y en la navegacion del
-                sitio.
-              </p>
             </div>
           </div>
         </div>

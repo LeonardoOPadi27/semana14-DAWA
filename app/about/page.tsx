@@ -16,7 +16,7 @@ export default function AboutPage() {
     "PostgreSQL & MongoDB",
     "Bootstrap",
     "Git & GitHub",
-    "Vercel",
+    "InfinityFree",
     "SEO tecnico",
   ];
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 Mi enfoque esta en crear aplicaciones claras, rapidas y faciles
                 de usar. Trabajo cuidando la estructura del contenido, los meta
                 tags, el sitemap y los detalles necesarios para publicar en
-                Vercel.
+                InfinityFree.
               </p>
               <p className="lead-dark mb-0">
                 Este portafolio resume proyectos, informacion profesional,

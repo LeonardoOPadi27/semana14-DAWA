@@ -1,65 +1,98 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Code2, Mail, Rocket } from "lucide-react";
+import ProjectCard from "@/components/ProjectCard";
+import { personalInfo, projects } from "@/lib/data";
 
 export default function Home() {
+  const featuredProjects = projects.filter((project) => project.featured);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="section-pad">
+        <div className="container">
+          <div className="row align-items-center g-5">
+            <div className="col-lg-7">
+              <p className="eyebrow mb-3">Portafolio web optimizado</p>
+              <h1 className="hero-title mb-4">{personalInfo.name}</h1>
+              <p className="lead lead-dark mb-3">{personalInfo.title}</p>
+              <p className="lead-dark fs-5 mb-4 col-xl-10">
+                {personalInfo.description}
+              </p>
+              <div className="d-flex flex-wrap gap-3">
+                <Link
+                  href="/projects"
+                  className="btn btn-accent d-inline-flex align-items-center gap-2 px-4 py-3"
+                >
+                  Ver Proyectos
+                  <ArrowRight size={18} aria-hidden="true" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="btn btn-ghost d-inline-flex align-items-center gap-2 px-4 py-3"
+                >
+                  Contacto
+                  <Mail size={18} aria-hidden="true" />
+                </Link>
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-ghost d-inline-flex align-items-center gap-2 px-4 py-3"
+                >
+                  GitHub
+                  <Code2 size={18} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+            <div className="col-lg-5">
+              <div className="dark-panel p-3 p-md-4">
+                <div className="avatar-frame mx-auto position-relative mb-4">
+                  <Image
+                    src={personalInfo.avatar}
+                    alt={personalInfo.name}
+                    fill
+                    priority
+                    sizes="240px"
+                  />
+                </div>
+                <div className="d-flex align-items-center gap-3">
+                  <Rocket className="icon-soft flex-shrink-0" size={32} />
+                  <div>
+                    <p className="mb-1 text-white fw-semibold">
+                      SEO, rendimiento y despliegue
+                    </p>
+                    <p className="mb-0 lead-dark">
+                      Next.js, Bootstrap, sitemap dinamico y robots.txt.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="pb-5">
+        <div className="container">
+          <div className="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-4">
+            <div>
+              <p className="eyebrow mb-2">Trabajo destacado</p>
+              <h2 className="text-white fw-bold mb-0">Proyectos principales</h2>
+            </div>
+            <Link href="/projects" className="nav-link-dark">
+              Ver todos los proyectos
+            </Link>
+          </div>
+          <div className="row g-4">
+            {featuredProjects.map((project) => (
+              <div className="col-md-6 col-xl-4" key={project.slug}>
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }

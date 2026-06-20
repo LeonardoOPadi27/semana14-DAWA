@@ -1,26 +1,195 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #080b12;
+  --foreground: #edf2ff;
+  --panel: #101722;
+  --panel-soft: #151f2d;
+  --line: rgba(148, 163, 184, 0.18);
+  --muted: #9aa7b8;
+  --accent: #6ee7f9;
+  --accent-strong: #38bdf8;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+body,
+a,
+button {
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.site-main {
+  min-height: calc(100vh - 154px);
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 32rem),
+    linear-gradient(180deg, #080b12 0%, #0b111b 55%, #080b12 100%);
+}
+
+.site-header {
+  background: rgba(8, 11, 18, 0.9);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(110, 231, 249, 0.45);
+  border-radius: 8px;
+  color: var(--accent);
+}
+
+.nav-link-dark {
+  color: var(--muted);
+  font-size: 0.95rem;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.nav-link-dark:hover {
+  color: var(--foreground);
+  transform: translateY(-1px);
+}
+
+.section-pad {
+  padding: 5rem 0;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  color: #f8fbff;
+  font-size: clamp(2.45rem, 7vw, 5.25rem);
+  font-weight: 800;
+  line-height: 0.98;
+}
+
+.lead-dark {
+  color: #b8c3d4;
+}
+
+.avatar-frame {
+  width: min(240px, 70vw);
+  aspect-ratio: 1;
+  border: 1px solid rgba(110, 231, 249, 0.38);
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.dark-panel {
+  background: rgba(16, 23, 34, 0.84);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.project-card {
+  min-height: 100%;
+  background: rgba(16, 23, 34, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--foreground);
+  overflow: hidden;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.project-card:hover {
+  border-color: rgba(110, 231, 249, 0.52);
+  transform: translateY(-3px);
+}
+
+.project-media {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #111827;
+}
+
+.project-media img,
+.avatar-frame img,
+.detail-media img {
+  object-fit: cover;
+}
+
+.project-copy {
+  color: var(--muted);
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(110, 231, 249, 0.24);
+  border-radius: 999px;
+  color: #c9f6ff;
+  background: rgba(56, 189, 248, 0.09);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.78rem;
+}
+
+.btn-accent {
+  --bs-btn-bg: #38bdf8;
+  --bs-btn-border-color: #38bdf8;
+  --bs-btn-color: #03111c;
+  --bs-btn-hover-bg: #7dd3fc;
+  --bs-btn-hover-border-color: #7dd3fc;
+  --bs-btn-hover-color: #03111c;
+  font-weight: 700;
+}
+
+.btn-ghost {
+  --bs-btn-color: #d9e6f7;
+  --bs-btn-border-color: rgba(148, 163, 184, 0.28);
+  --bs-btn-hover-bg: rgba(148, 163, 184, 0.12);
+  --bs-btn-hover-border-color: rgba(148, 163, 184, 0.5);
+  --bs-btn-hover-color: #ffffff;
+}
+
+.detail-media {
+  position: relative;
+  min-height: 430px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.contact-card {
+  background: rgba(16, 23, 34, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--foreground);
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.contact-card:hover {
+  border-color: rgba(110, 231, 249, 0.52);
+  transform: translateY(-2px);
+}
+
+.site-footer {
+  background: #070a10;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.icon-soft {
+  color: var(--accent);
 }
